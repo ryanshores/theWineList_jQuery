@@ -1,0 +1,25 @@
+{
+  "name": "thewinelist",
+  "version": "1.0.0",
+  "description": "A simple wine list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanshores/theWineList.git"
+  },
+  "author": "Ryan Shores",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryanshores/theWineList/issues"
+  },
+  "homepage": "https://github.com/ryanshores/theWineList#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http-errors": "^1.6.3",
+    "mongoose": "^5.1.6",
+    "morgan": "^1.9.0"
+  }
+}
