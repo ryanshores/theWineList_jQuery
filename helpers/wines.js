@@ -13,12 +13,13 @@ exports.getWines = (req, res) => {
 };
 
 exports.createWine = (req, res) => {
-	Wine.create(req.body)
+	var wine = req.body;
+	Wine.create(wine)
 	.then( (newWine) => {
-		return res.status(201).json(newWine);
+		return res.status(201).json({message: "Wine successfully added!", newWine});
 	})
 	.catch( (err) => {
-		res.send(err);
+		res.status(206).send(err);
 	});
 };
 
@@ -37,7 +38,7 @@ exports.updateWine = (req, res) => {
 	var wineId = req.params.wineid;
 	Wine.findOneAndUpdate({_id: wineId}, req.body, {new: true})
 	.then( (wine) => {
-		return res.json(wine);
+		return res.json({message: "Updated wine!", wine});
 	})
 	.catch( (err) => {
 		res.send(err);
@@ -47,8 +48,8 @@ exports.updateWine = (req, res) => {
 exports.deleteWine = (req, res) => {
 	var wineId = req.params.wineid;
 	Wine.remove({_id: wineId})
-	.then( () => {
-		return res.json({message: "Removed wine."});
+	.then( (result) => {
+		return res.json({message: "Removed wine.", result});
 	})
 	.catch( (err) => {
 		res.send(err);

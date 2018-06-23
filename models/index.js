@@ -1,7 +1,11 @@
-var mongoose = require("mongoose");
+let mongoose = require("mongoose");
+let config = require("config");
 
-mongoose.set("debug", true);
-mongoose.connect("mongodb://localhost/winelist");
+if(config.util.getEnv("NODE_ENV") !== "test"){
+	// use mongoose debug to see connections to DBHOST
+	mongoose.set("debug", true);
+}
+mongoose.connect(config.DBHOST);
 
 mongoose.Promise = Promise;
 

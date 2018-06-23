@@ -1,0 +1,3 @@
+{
+	"DBHOST": "mongodb://localhost/winelist_test"
+}

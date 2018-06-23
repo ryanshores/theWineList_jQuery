@@ -1,13 +1,19 @@
-var express = require("express");
-var app = express();
-var morgan = require('morgan');
-var createError = require("http-errors");
-var port = process.env.PORT || 3000;
-var bodyParser = require("body-parser");
+let express = require("express");
+let app = express();
+let morgan = require('morgan');
+let createError = require("http-errors");
+let port = process.env.PORT || 3000;
+let bodyParser = require("body-parser");
+let config = require("config");
 
-var wineRoutes = require("./routes/wines");
+let wineRoutes = require("./routes/wines");
 
-app.use( morgan("dev") );
+// dont show log when testing
+if(config.util.getEnv("NODE_ENV") !== "test"){
+	// use morgan to log to command listen
+	app.use( morgan("dev") );
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/views"));
@@ -31,3 +37,5 @@ app.listen(port, () => {
 	console.log("Server is running on " + port);
 });
 
+// for testing
+module.exports = app;
