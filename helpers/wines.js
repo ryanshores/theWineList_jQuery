@@ -16,7 +16,7 @@ exports.createWine = (req, res) => {
 	var wine = req.body;
 	Wine.create(wine)
 	.then( (newWine) => {
-		return res.status(201).json({message: "Wine successfully added!", newWine});
+		return res.status(201).json(newWine);
 	})
 	.catch( (err) => {
 		res.status(206).send(err);
