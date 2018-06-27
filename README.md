@@ -43,7 +43,7 @@ npm i -g nodemon
 
 ## Licence
 
-This project is licences unde the MIT Licence - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licences unde the MIT Licence - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
