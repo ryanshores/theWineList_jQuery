@@ -58,6 +58,7 @@ var createWine = (wine) => {
 	// send the request to make new wine
 	$.post(createURL, wineObj)
 	.then( (newWine) => {
+		console.log(newWine);
 		addWine(newWine);
 		$("#wineInput").val("");
 	})

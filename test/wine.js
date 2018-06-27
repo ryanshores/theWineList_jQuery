@@ -66,11 +66,10 @@ describe("Wine", () => {
 			.end((err, res) => {
 				res.should.have.status(201);
 				res.body.should.be.a("object");
-				res.body.should.have.property("message").eql("Wine successfully added!");
-				res.body.newWine.should.have.property("name");
-				res.body.newWine.should.have.property("winery");
-				res.body.newWine.should.have.property("type");
-				res.body.newWine.should.have.property("year");
+				res.body.should.have.property("name");
+				res.body.should.have.property("winery");
+				res.body.should.have.property("type");
+				res.body.should.have.property("year");
 				done();
 			});
 		});
