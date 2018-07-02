@@ -5,7 +5,7 @@ var Wine = db.Wine;
 exports.getWines = (req, res) => {
 	Wine.find({})
 	.then( (wines) =>{
-		// return res.json(wines);
+		return res.json(wines);
 	})
 	.catch( (err) => {
 		res.send(err);
